@@ -7,5 +7,21 @@
     "prod": "gulp"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rename": "^1.2.2"
+  },
+  "dependencies": {
+    "gulp-htmlmin": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webkingin/jd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webkingin/jd/issues"
+  },
+  "homepage": "https://github.com/webkingin/jd#readme"
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang=en><head><script>/*
+        dont change the below code "var env = "qa";" , AS this one is use to switch env via file replace (FS)
+        */
+        var env = "prod";
+
+        var config = {
+            js : {
+                jquery : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/jquery/dist/jquery.min.js",
+                    qa : "bower_components/jquery/dist/jquery.min.js"
+                },
+                bootstrap : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/bootstrap/dist/js/bootstrap.min.js",
+                    qa : "bower_components/bootstrap/dist/js/bootstrap.min.js"
+                },
+                "jquery.magnific" : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js",
+                    qa : "bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"
+                },
+                scrollreveal : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/scrollreveal/dist/scrollreveal.min.js",
+                    qa : "bower_components/scrollreveal/dist/scrollreveal.min.js"
+                },
+                "jquery.easing" : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/jquery.easing/js/jquery.easing.min.js",
+                    qa : "bower_components/jquery.easing/js/jquery.easing.min.js"
+                },
+                creative : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/js/creative.js",
+                    qa : "js/creative.js"
+                }
+            },
+            css : {
+                app : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/styles/css/style.css",
+                    qa : "styles/css/style.css"
+                },
+                bootstrap : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/bootstrap/dist/css/bootstrap.min.css",
+                    qa : "bower_components/bootstrap/dist/css/bootstrap.min.css"
+                },
+                awesome : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/font-awesome/css/font-awesome.min.css",
+                    qa  : "bower_components/font-awesome/css/font-awesome.min.css"
+                },
+                magnific : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/bower_components/magnific-popup/dist/magnific-popup.css",
+                    qa  : "bower_components/magnific-popup/dist/magnific-popup.css"
+                },
+                creative : {
+                    prod : "https://cdn.rawgit.com/webkingin/jd/master/css/creative.css",
+                    qa : "css/creative.css"
+                }
+            }
+        }
+
+        //load css
+        for (var cssConfig in config.css) {
+            loadjscssfile(config.css[cssConfig][env], 'css');
+        }
+
+        function loadjscssfile(filename, filetype) {
+            if (filetype == "js") { //if filename is a external JavaScript file
+
+                if (env == 'qa') {
+
+                    var fileref = document.createElement('script')
+                    fileref.setAttribute("type", "text/javascript")
+                    fileref.setAttribute("src", filename)
+
+
+                } else {
+                // get some kind of XMLHttpRequest
+                var xhrObj = new XMLHttpRequest();
+                // open and send a synchronous request
+                xhrObj.open('GET', filename, false);
+                xhrObj.send('');
+                // add the returned content to a newly created script tag
+                var se = document.createElement('script');
+                se.type = "text/javascript";
+                se.text = xhrObj.responseText;
+                document.getElementsByTagName('head')[0].appendChild(se);
+
+
+            }
+
+        }
+            else if (filetype == "css") { //if filename is an external CSS file
+                var fileref = document.createElement("link")
+                fileref.setAttribute("rel", "stylesheet")
+                fileref.setAttribute("type", "text/css")
+                fileref.setAttribute("href", filename)
+            }
+            if (typeof fileref != "undefined")
+                document.getElementsByTagName("head")[0].appendChild(fileref)
+        }</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="J.D. Construction"><title>J.D. Construction</title><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--></head><body id=page-top><nav id=mainNav class="navbar navbar-default navbar-fixed-top"><div class=container-fluid><div class=navbar-header><button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#bs-example-navbar-collapse-1><span class=sr-only>Toggle navigation</span> Menu <i class="fa fa-bars"></i></button> <a class="navbar-brand page-scroll" href=#page-top style="font-family: sans-serif;
+                letter-spacing: 1px">J.D. Construction</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a class=page-scroll href=#about>About</a></li><li><a class=page-scroll href=#services>services</a></li><li><a class=page-scroll href=#portfolio>Project</a></li><li><a class=page-scroll href=#contact>Contact</a></li></ul></div></div></nav><header><div class=header-content><div class=header-content-inner><h1 id=homeHeading style="font-family: sans-serif;
+                letter-spacing: 1px">J.D. Construction</h1><h3 id="">Where The Building Build With Confidence</h3><br><a href=#about class="btn btn-primary btn-xl page-scroll">Find Out More</a></div></div></header><section class=bg-primary id=about><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 text-center"><h2 class=section-heading>About Us</h2><hr class=light><p class=text-faded>At J.D. Construction , our unique qualifications enable us to provide comprehensive services to a variety of clients.</p><h2 class=section-heading>What We Belive</h2><hr class=light><p class=text-faded>We J.D. Construction, at believe in delivering quality services to achieve sustainable solutions and design excellence. We do this with the highest level of professionalism, enthusiasm and commitment.</p><h2 class=section-heading>What We Offer</h2><hr class=light><p class=text-faded>J.D. Construction has designed more than 10 lakhs square feet of architecture, interiors and planning projects which vary in scope from small to large and include site master plans, commercial buildings, corporate campuses and high technology labs.</p><h2 class=section-heading>Our Approach</h2><hr class=light><p class=text-faded>Goals and Objectives Thoroughly understand client’s goals, objectives and expectations. Team Member Roles Define roles and responsibilities for each team member. Complex Solutions Communications Develop and maintain clear lines of communication for all project team members. Project Management Establish a concise point – of – contact and provide clear interface with each project team member. Critical Paths Execute prompt, thorough and final team member decision making. Contractors Achieve cooperative and responsible roles for the general contractor.</p><a href=#services class="page-scroll btn btn-default btn-xl sr-button">Find Out More</a></div></div></div></section><section id=services><div class=container><div class=row><div class="col-lg-12 text-center"><h2 class=section-heading>At Your Service</h2><hr class=primary><p>We,J.D. Construction at , believe in delivering quality services to achieve sustainable solutions and design excellence. We do this with the highest level of professionalism, enthusiasm and commitment. We have designed and executed a wide variety of architectural and interior projects.</p></div></div></div></section><section class=no-padding id=portfolio><div class=container-fluid><div class="row no-gutter popup-gallery"><div class="col-lg-4 col-sm-6"><a href=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/fullsize/1.JPG class=portfolio-box><img src=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/thumbnails/1.JPG class=img-responsive alt=""><div class=portfolio-box-caption><div class=portfolio-box-caption-content><div class="project-category text-faded">Residential</div><div class=project-name>Dr. Kashayap At Barhi</div></div></div></a></div><div class="col-lg-4 col-sm-6"><a href=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/fullsize/2.JPG class=portfolio-box><img src=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/thumbnails/2.JPG class=img-responsive alt=""><div class=portfolio-box-caption><div class=portfolio-box-caption-content><div class="project-category text-faded">Commercial</div><div class=project-name>Mr. Balmiki Prasad At Barhi</div></div></div></a></div><div class="col-lg-4 col-sm-6"><a href=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/fullsize/3.JPG class=portfolio-box><img src=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/thumbnails/3.JPG class=img-responsive alt=""><div class=portfolio-box-caption><div class=portfolio-box-caption-content><div class="project-category text-faded">Commercial</div><div class=project-name>Mr. Mahesh Yadav At Barhi</div></div></div></a></div><div class="col-lg-4 col-sm-6"><a href=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/fullsize/4.jpg class=portfolio-box><img src=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/thumbnails/4.jpg class=img-responsive alt=""><div class=portfolio-box-caption><div class=portfolio-box-caption-content><div class="project-category text-faded">Commercial</div><div class=project-name>Ilex School At Karyatpur</div></div></div></a></div><div class="col-lg-4 col-sm-6"><a href=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/fullsize/5.JPG class=portfolio-box><img src=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/thumbnails/5.JPG class=img-responsive alt=""><div class=portfolio-box-caption><div class=portfolio-box-caption-content><div class="project-category text-faded">Commercial</div><div class=project-name>Mr. Khawja ji At Barhi</div></div></div></a></div><div class="col-lg-4 col-sm-6"><a href=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/fullsize/6.JPG class=portfolio-box><img src=https://cdn.rawgit.com/webkingin/jd/master/img/portfolio/thumbnails/6.JPG class=img-responsive alt=""><div class=portfolio-box-caption><div class=portfolio-box-caption-content><div class="project-category text-faded">Commercial</div><div class=project-name>Mr. Prince At Barhi</div></div></div></a></div></div></div></section><section id=contact><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 text-center"><h2 class=section-heading>Contact</h2><hr class=primary><p>J.D.Construction , Gaya Road , Shubham Complex , Near UCO Bank , Barhi , Hazaribag , Jharkhand , Pin Code - 825405</p></div></div><div class=row><div class=col-md-3></div><div class="col-md-3 text-center"><i class="fa fa-phone fa-3x sr-contact"></i><p><a href=tel:+919852506776>9852506776</a> , <a href=tel:+917250062200>7250062200</a></p></div><div class="col-md-3 text-center"><i class="fa fa-envelope-o fa-3x sr-contact"></i><p><a href=mailto:jdconstructionbarhi17@gmail.com>jdconstructionbarhi17@gmail.com</a></p></div><div class=col-md-3></div></div><div class=row><div class=col-md-3></div><div class="col-md-3 text-center sr-contact"><i class="fa fa-facebook fa-3x"></i><p><a href=https://www.facebook.com/ >Visit us on facebook</a></p></div><div class="col-md-3 text-center sr-contact"><i class="fa fa-whatsapp fa-3x"></i><p><a href=https://www.whatsapp.com/ >Visit us on whatsapp</a></p></div><div class=col-md-3></div></div></div><hr><div class="col-md-12 text-center"><h3 class=section-heading>Designed by Web king <i class="fa fa-empire"></i></h3><p><a href=mailto:jdconstructionbarhi17@gmail.com>Click to contact us via mail</a></p></div></section><section class=bg-primary-strip><div class="container text-center"><div class=call-to-action></div></div></section><script>//load js
+    for (var jsConfig in config.js) {
+        loadjscssfile(config.js[jsConfig][env], 'js');
+    }</script></body></html>
