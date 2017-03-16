@@ -1,0 +1,11 @@
+{
+  "name": "jd_aws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "gulp"
+  },
+  "author": "",
+  "license": "ISC"
+}
